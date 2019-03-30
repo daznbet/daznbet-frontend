@@ -9,6 +9,7 @@ import Title from './components/Title'
 import Container from './components/Container'
 
 import UserContainer from './containers/UserContainer'
+import StreamContainer from './containers/StreamContainer'
 
 import service from './services/EventsSource'
 
@@ -19,7 +20,7 @@ const App = ({ user }) => (
       <Container>
         <Title size="xxg">DAZN Bet</Title>
         {!!user.name && <Title size="base">Hey, {user.name}</Title>}
-        {(user && user.name && user.id) ? 'streaming' : <UserContainer />}
+        {(user && user.name && user.id) ? <StreamContainer /> : <UserContainer />}
       </Container>
     </>
   </ThemeProvider>
