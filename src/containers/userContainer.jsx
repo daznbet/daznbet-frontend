@@ -5,8 +5,10 @@ import { save } from '../redux/modules/user'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import Form from '../components/Form'
+import Card from '../components/Card'
+import Title from '../components/Title'
 
-const UserContainer = ({ saveUser }) => {
+const UserContainer = ({ saveUser, user }) => {
   const [name, setName] = useState('')
 
   const handleSubmit = (ev) => {
@@ -24,7 +26,7 @@ const UserContainer = ({ saveUser }) => {
         label="tell me your name to start betting"
         onChange={handleChange}
       />
-      <Button variant="secondary">watch</Button>
+      <Button fill={user.loading} block>watch</Button>
     </Form>
   )
 }

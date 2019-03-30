@@ -6,6 +6,8 @@ const InputContainer = styled.div`
   width: 100%;
   position: relative;
 `
+InputContainer.displayName = "InputContainer"
+
 const StyledInput = styled.input`
   display: block;
   width: 100%;
@@ -14,13 +16,16 @@ const StyledInput = styled.input`
   font-size: ${({ theme: { fonts }}) => fonts.size.lg };
   border-radius: ${({ theme: { radius } }) => radius.sm };
   border: 0;
-  min-height: ${({ theme: { spacing }}) => spacing.xxg };
+  min-height: ${({ theme: { spacing }}) => spacing.hg };
   color: ${({ theme: { colors }}) => colors.white01 };
   transition: box-shadow .4s ease;
   outline: none;
 
   box-shadow: ${({ focused, theme: { shadow } }) => !focused ? 'none' : shadow.base};
+  box-sizing: border-box;
 `
+StyledInput.displayName = "Input"
+
 
 const Label = styled.span`
   position: absolute;
@@ -33,6 +38,7 @@ const Label = styled.span`
   transition: transform .4s ease, color .4s ease;
   transform-origin: left;
 `
+Label.displayName = "Label"
 
 
 const Input = ({ label, ...props }) => {

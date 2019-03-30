@@ -3,13 +3,13 @@ export const CREATE_USER_SUCCESS = 'user/success/create'
 export const CREATE_USER_FAILURE = 'user/failure/create'
 
 const createUserRequest = () => ({ type: CREATE_USER_REQUEST })
-const createUserSuccess = (user) => ({ type: CREATE_USER_SUCCESS, payload: { user } })
+const createUserSuccess = (user) => ({ type: CREATE_USER_SUCCESS, payload: user })
 const createUserFailure = (errors) => ({ type: CREATE_USER_FAILURE, payload: { errors } })
 
 export const save = (name) => (dispatch, getState) => {
+  if (!name) return
   dispatch(createUserRequest())
-
-  dispatch(createUserSuccess({ name: 'paulo', id: 1 }))
+  setTimeout(() => dispatch(createUserSuccess({ name, id: 1 })), 1200)
 }
 
 const handlers = {

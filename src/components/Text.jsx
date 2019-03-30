@@ -4,5 +4,6 @@ const Text = styled.span`
 
 
 `
+Text.displayName = "Text"
 
 export default Text;

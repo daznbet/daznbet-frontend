@@ -2,26 +2,45 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Button = styled.button`
+  position: relative;
   display: inline-block;
   padding: ${ ({ theme: { spacing }}) => `${spacing.base} ${spacing.base}` }
-  background-color: ${({ variant, theme: { colors } }) => variant === 'secondary' ? 'transparent' : colors.yellow01 };
-  color: ${({ variant, theme: { colors } }) => variant === 'secondary' ? colors.yellow01 : colors.black01 };
+  background-color: ${({ theme: { colors } }) => 'transparent' };
+  color: ${({ theme: { colors } }) => colors.yellow01 };
   border-radius: ${({ theme: { radius } }) => radius.sm };
-  border: ${({ variant, theme: { colors } }) => variant === 'secondary' ? `1px solid ${colors.yellow01}` : 0 };
+  border: ${({ theme: { colors } }) => `1px solid ${colors.yellow01}`};
   outline: none;
   min-height: ${({ theme: { spacing }}) => spacing.xxg };
   font-size: ${({ theme: { fonts } }) => fonts.size.lg };
-  min-width: 120px;
+  min-width: ${({ block }) => !!block ? '100%' : '120px' };
   cursor: pointer;
   text-transform: lowercase;
+  background-size: 0px 0px;
+
+  &:before {
+   content: '';
+   color: ${({ theme: { colors } }) => colors.black01 };
+   background-color: ${({ theme: { colors } }) => colors.yellow01 };
+   min-width:  ${({ fill }) => !fill ? "0" : "100%"};
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 1;
+   height: 100%;
+   transition: min-width 1.4s ease;
+  }
 `
 
+Button.displayName = "Button"
+
 Button.propTypes = {
-  variant: PropTypes.string,
+  fill: PropTypes.bool,
+  filledText: PropTypes.string,
 }
 
 Button.defaultProps = {
-  variant: 'primary'
+  fill: false,
+  filledText: '',
 }
 
 export default Button;

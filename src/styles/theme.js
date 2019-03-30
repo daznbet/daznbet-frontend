@@ -16,6 +16,7 @@ export default {
     lg: '32px',
     xg: '40px',
     xxg: '48px',
+    hg: '56px',
   },
   fonts: {
     family: 'Open Sans, Helvetica',

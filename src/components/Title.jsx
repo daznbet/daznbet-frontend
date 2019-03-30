@@ -21,7 +21,14 @@ const Title = styled.h1`
 `
 
 Title.propTypes = {
-  size: PropTypes.oneOf(['lg', 'md', 'sm']),
+  size: PropTypes.oneOf([
+    'xs',
+    'sm',
+    'base',
+    'lg',
+    'xg',
+    'xxg',
+  ]),
   styled: PropTypes.bool,
 }
 
