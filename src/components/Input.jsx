@@ -28,13 +28,14 @@ const Label = styled.span`
   top: ${({ theme: { spacing } }) => spacing.sm }
   left: ${({ theme: { spacing } }) => spacing.base }
 
+  color: ${({ theme: { colors }, focused }) => !focused ? colors.white01 : colors.yellow01 };
   transform: ${({ focused }) => !focused ? 'scale(1)' : 'scale(.5) translateY(-32px)'};
-  transition: transform .4s ease;
+  transition: transform .4s ease, color .4s ease;
   transform-origin: left;
 `
 
 
-const Input = ({ label }) => {
+const Input = ({ label, ...props }) => {
   const [ focused, setFocused ] = useState(false);
 
   return (
@@ -46,6 +47,7 @@ const Input = ({ label }) => {
         focused={focused}
         onFocus={({ target: { value } }) => setFocused(!!value || true)}
         onBlur={({ target: { value } }) => setFocused(!!value || false)}
+        {...props}
       />
       <Label focused={focused}>{label}</Label>
     </InputContainer>

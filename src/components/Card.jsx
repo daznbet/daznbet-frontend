@@ -8,13 +8,15 @@ const Card = styled.div`
   border-radius: ${({ theme: { radius }}) => radius.base };
   min-height: 150px;
 
-  border-left: 10px solid ${({ theme: { colors } }) => colors.yellow01 };
+  border-left: 10px solid ${({ theme: { colors }, variant }) => variant === 'error' ? colors.red01 : colors.yellow01 };
 `
 
 Card.propTypes = {
+  variant: PropTypes.string,
 }
 
 Card.propTypes = {
+  variant: 'error',
 }
 
 export default Card

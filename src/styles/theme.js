@@ -4,6 +4,7 @@ export default {
     black01: '#0c151c',
     black02: '#242d34',
     white01: '#fff',
+    red01: '#FE0D0D',
     alpha01: 'rgba(36,45,52, .7)'
   },
   spacing: {
