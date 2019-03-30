@@ -13,18 +13,21 @@ import StreamContainer from './containers/StreamContainer'
 
 import service from './services/EventsSource'
 
-const App = ({ user }) => (
-  <ThemeProvider theme={theme}>
-    <>
-      <GlobalStyle />
-      <Container>
-        <Title size="xxg">DAZN Bet</Title>
-        {!!user.name && <Title size="base">Hey, {user.name}</Title>}
-        {(user && user.name && user.id) ? <StreamContainer /> : <UserContainer />}
-      </Container>
-    </>
-  </ThemeProvider>
-)
+const App = ({ user }) => {
+
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <Container>
+          <Title size="xxg">DAZN Bet</Title>
+          {!!user.name && <Title size="base">Hey, {user.name}</Title>}
+          {(user && user.id) ? <StreamContainer /> : <UserContainer />}
+        </Container>
+      </>
+    </ThemeProvider>
+  )
+}
 
 const stateToProps = ({ user }) => ({
   user

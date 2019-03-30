@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -43,16 +43,18 @@ Label.displayName = "Label"
 
 const Input = ({ label, ...props }) => {
   const [ focused, setFocused ] = useState(false);
+  const inputRef = useRef(false);
 
   return (
     <InputContainer
-      onClick={() => setFocused(true)}
+      onClick={() => inputRef.current.focus()}
       focused={focused}
     >
       <StyledInput
         focused={focused}
         onFocus={({ target: { value } }) => setFocused(!!value || true)}
         onBlur={({ target: { value } }) => setFocused(!!value || false)}
+        ref={inputRef}
         {...props}
       />
       <Label focused={focused}>{label}</Label>
