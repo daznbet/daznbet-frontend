@@ -4,6 +4,7 @@ export default {
     black01: '#0c151c',
     black02: '#242d34',
     white01: '#fff',
+    alpha01: 'rgba(36,45,52, .7)'
   },
   spacing: {
     xxs: '2px',
@@ -17,6 +18,21 @@ export default {
   },
   fonts: {
     family: 'Open Sans, Helvetica',
-    size: '16px',
+    size: {
+      xs: '0.6rem',
+      sm: '0.8rem',
+      base: '16px',
+      lg: '1.2rem',
+      xg: '1.4rem',
+      xxg: '1.6rem'
+    },
+  },
+  radius: {
+    sm: '4px',
+    base: '8px',
+    md: '16px',
+  },
+  shadow: {
+    base: '-1px 1px 1px rgba(36,45,52, .6)',
   }
 }
