@@ -3,10 +3,8 @@ import { connect } from 'react-redux'
 
 import { create, clear } from '../redux/modules/user'
 import Input from '../components/Input'
-import Button from '../components/Button'
+import LoadingButton from '../components/LoadingButton'
 import Form from '../components/Form'
-import Card from '../components/Card'
-import Title from '../components/Title'
 import Tooltip from '../components/Tooltip'
 
 const UserContainer = ({ createUser, clearUser, user }) => {
@@ -27,8 +25,14 @@ const UserContainer = ({ createUser, clearUser, user }) => {
         label="tell me your name to start betting"
         onChange={handleChange}
       />
-      <Button fill={user.loading || user.id} block>watch</Button>
-      {!!user.error && (
+      <LoadingButton
+        loading={user.loading || !!user.id}
+        block
+        fill={!!user.id}
+      >
+        <span> { (user.id && `welcome, ${user.id}`) || 'go!'} </span>
+        </LoadingButton>
+      {(!!user.error) && (
         <Tooltip
           type='error'
           onClose={clearUser}

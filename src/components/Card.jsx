@@ -10,7 +10,7 @@ const Card = styled.div`
   align-items: middle;
   min-width: 200px;
 
-  ${({ theme: { colors }, side, inverse }) => !!side && !inverse && `
+  ${({ theme: { colors }, side }) => !!side && `
     border-${side}: 10px solid ${colors.yellow01};
   `}
 
@@ -18,6 +18,8 @@ const Card = styled.div`
     margin-bottom: 0;
   }
 
+  transition: color .4s ease,
+    background-color .4s ease;
 `
 Card.displayName = "Card"
 

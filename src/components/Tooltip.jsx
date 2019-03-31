@@ -1,16 +1,14 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import Card from './Card'
 
 const Entering = keyframes`
   from { opacity: 0; transform: translateY(500px)}
   to { opacity: 1; transform: translateY(0)}
 `
 
-const StyledTooltip = styled.div`
-  background-color: ${({ type, theme: { colors } }) => type === 'error' ? colors.red01 : colors.yellow01 };
-  border-radius: ${({ theme: { radius } }) => radius.sm};
-  padding: ${({ theme: { spacing } }) => `${ spacing.base } ${ spacing.md }`};
-
+const StyledTooltip = styled(Card)`
+  border-left: 10px solid ${({ theme: { colors }, type }) => type === 'error' ? colors.red01 : colors.yellow01 }
   position: absolute;
   bottom: ${({ theme: { spacing } }) => spacing.lg};
   left: ${({ theme: { spacing } }) => spacing.lg};

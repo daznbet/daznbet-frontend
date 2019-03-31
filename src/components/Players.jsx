@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 
 import CardList from './CardList'
-import Title from './Title'
-import Card from './Card'
-import Text from './Text'
 import Player from './Player'
 
 const Players = ({ players, side, direction }) =>  {
@@ -13,10 +9,9 @@ const Players = ({ players, side, direction }) =>  {
   const toggleSelect = (player) => {
     const index = selectedPlayers.indexOf(player)
     if (index >= 0)
-      setSelected(selectedPlayers.splice(index, 1))
+      setSelected([...selectedPlayers.slice(0, index), ...selectedPlayers.slice(index + 1)])
     else
       setSelected([ ...selectedPlayers, player ])
-
   }
 
   return (

@@ -1,9 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import Players from '../components/Players'
 import Row from '../components/Row'
 
-const StramContainer = ({ showColumns }) => (
+const PlayersContainer = () => (
   <Row>
     <Players
       direction="column"
@@ -19,4 +18,4 @@ const StramContainer = ({ showColumns }) => (
   </Row>
 )
 
-export default connect()(StramContainer)
+export default PlayersContainer

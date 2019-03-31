@@ -16,19 +16,6 @@ const Button = styled.button`
   cursor: pointer;
   text-transform: lowercase;
   background-size: 0px 0px;
-
-  &:before {
-   content: '';
-   color: ${({ theme: { colors } }) => colors.black01 };
-   background-color: ${({ theme: { colors } }) => colors.yellow01 };
-   min-width:  ${({ fill }) => !fill ? "0" : "100%"};
-   position: absolute;
-   top: 0;
-   left: 0;
-   z-index: 1;
-   height: 100%;
-   transition: min-width 1.4s ease;
-  }
 `
 
 Button.displayName = "Button"

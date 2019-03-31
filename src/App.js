@@ -9,11 +9,11 @@ import Title from './components/Title'
 import Container from './components/Container'
 
 import UserContainer from './containers/UserContainer'
-import StreamContainer from './containers/StreamContainer'
-
-import service from './services/EventsSource'
+import PlayersContainer from './containers/PlayersContainer'
 
 const App = ({ user }) => {
+  const shouldShowUserContainer = !user || !user.id
+  const shouldShowPlayersContainer = !shouldShowUserContainer
 
   return (
     <ThemeProvider theme={theme}>
@@ -21,8 +21,8 @@ const App = ({ user }) => {
         <GlobalStyle />
         <Container>
           <Title size="xxg">DAZN Bet</Title>
-          {!!user.name && <Title size="base">Hey, {user.name}</Title>}
-          {(user && user.id) ? <StreamContainer /> : <UserContainer />}
+          {shouldShowUserContainer && <UserContainer />}
+          {shouldShowPlayersContainer && <PlayersContainer />}
         </Container>
       </>
     </ThemeProvider>
