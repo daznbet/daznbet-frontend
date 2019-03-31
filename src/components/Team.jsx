@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import CardList from './CardList'
 import Player from './Player'
 
-const Players = ({ players, side, direction }) =>  {
+const Teams = ({ players, side, direction }) =>  {
   const [selectedPlayers, setSelected] = useState([])
 
   const toggleSelect = (player) => {
@@ -27,4 +27,4 @@ const Players = ({ players, side, direction }) =>  {
   )
 }
 
-export default Players
+export default Teams

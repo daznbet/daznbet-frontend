@@ -9,7 +9,7 @@ import Title from './components/Title'
 import Container from './components/Container'
 
 import UserContainer from './containers/UserContainer'
-import PlayersContainer from './containers/PlayersContainer'
+import GameContainer from './containers/GameContainer'
 
 const App = ({ user }) => {
   const shouldShowUserContainer = !user || !user.id
@@ -22,7 +22,7 @@ const App = ({ user }) => {
         <Container>
           <Title size="xxg">DAZN Bet</Title>
           {shouldShowUserContainer && <UserContainer />}
-          {shouldShowPlayersContainer && <PlayersContainer />}
+          {shouldShowPlayersContainer && <GameContainer />}
         </Container>
       </>
     </ThemeProvider>
