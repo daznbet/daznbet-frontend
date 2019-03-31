@@ -7,7 +7,6 @@ import daznLogo from './assets/dazn.png'
 import theme from './styles/theme'
 import GlobalStyle from './styles/globalStyle'
 
-import Title from './components/Title'
 import Container from './components/Container'
 import Logo from './components/Logo'
 

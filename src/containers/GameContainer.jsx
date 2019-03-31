@@ -3,9 +3,16 @@ import { connect } from 'react-redux'
 
 import Team from '../components/Team'
 import Row from '../components/Row'
-import { getPlayers } from '../redux/modules/player'
+import { getPlayers } from '../redux/modules/game'
+import { toggleSelect } from '../redux/modules/player'
 
-const GameContainer = ({ initPlayers, gameId, teams }) => {
+const GameContainer = ({
+  initPlayers,
+  gameId,
+  teams,
+  selectedPlayers,
+  togglePlayerSelect,
+}) => {
   useEffect(() => {
     initPlayers()
   }, [initPlayers])
@@ -16,19 +23,23 @@ const GameContainer = ({ initPlayers, gameId, teams }) => {
           direction="column"
           players={team.players}
           side={ i === 0 ? 'left' : 'right' }
+          selected={selectedPlayers}
+          toggleSelect={togglePlayerSelect}
         />
       )}
     </Row>
   )
 }
 
-const stateToProps = ({ game }) => ({
+const stateToProps = ({ game, player }) => ({
   gameId: game.gameId,
-  teams: game.teams
+  teams: game.teams,
+  selectedPlayers: player.selected
 })
 
 const dispatchToProps = {
-  initPlayers: getPlayers
+  initPlayers: getPlayers,
+  togglePlayerSelect: toggleSelect,
 }
 
 export default connect(stateToProps, dispatchToProps)(GameContainer)
