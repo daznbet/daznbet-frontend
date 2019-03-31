@@ -8,6 +8,7 @@ const CardList = styled.ul`
   max-width: 100%;
   padding: 0;
   margin: 0;
+  z-index: 999;
 
   li {
     margin: ${({ theme: { spacing } }) => spacing.base}
