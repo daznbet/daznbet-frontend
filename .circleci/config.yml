@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:11
     steps:
       - checkout
-
+      - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - run:
         name: Install dependencies
