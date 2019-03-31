@@ -2,7 +2,7 @@ export default {
   colors: {
     yellow01: '#f8fc00',
     black01: '#000',
-    black02: '#242d34',
+    black02: 'rgba(36,45,52, .8)',
     white01: '#fff',
     red01: '#FE0D0D',
     alpha01: 'rgba(36,45,52, .7)'
