@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:11
+    steps:
+      - checkout
+
+          key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - run:
+        name: Install dependencies
+        command: npm install
+      - run: Tests
+        name: npm test
