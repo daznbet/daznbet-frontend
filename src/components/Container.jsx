@@ -7,11 +7,7 @@ const Container = styled.div`
   box-sizing: content-box;
   width: 100%
   min-height: 100%
-  max-width: 80%;
-
-  @media screen and (min-width: 1024px) {
-    max-width: 1024px;
-  }
+  max-width: 95%;
 `
 
 Container.displayName = "Container"

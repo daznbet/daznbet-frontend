@@ -6,20 +6,21 @@ import VideoWrapper from '../components/VideoWrapper'
 const VideoContainer = ({ videoId, offset, width, height }) => {
   const playerRef = useRef()
 
-  const opts = {
-    width,
-    height,
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      disablekb: 1,
-      enablejsapi: 1,
-      start: offset,
-    }
-  }
-
   useEffect(() => {
     if (!videoId) return
+
+    const opts = {
+      width,
+      height,
+      playerVars: {
+        autoplay: 1,
+        controls: 0,
+        disablekb: 1,
+        enablejsapi: 1,
+        start: offset,
+      }
+    }
+
     playerRef.current = (<Youtube
       videoId={videoId}
       opts={opts}
