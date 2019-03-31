@@ -2,8 +2,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Card = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: ${({ theme: { colors }, inverse }) => !inverse ? colors.black02 : colors.yellow01 };
-  color: ${({ theme: { colors }, inverse }) => inverse ? colors.black02 : 'inhereit' };
   padding: ${({ theme: { spacing } }) => spacing.base }
   box-shadow: ${({ theme: { shadow }}) => shadow.base };
   border-radius: ${({ theme: { radius }}) => radius.base };
@@ -16,6 +18,12 @@ const Card = styled.div`
 
   h1 {
     margin-bottom: 0;
+  }
+
+  &,
+  & h1,
+  & span {
+    color: ${({ theme: { colors }, inverse }) => inverse ? colors.black02 : 'inhereit' };
   }
 
   transition: color .4s ease,

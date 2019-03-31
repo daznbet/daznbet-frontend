@@ -3,19 +3,19 @@ import { connect } from 'react-redux'
 
 import Team from '../components/Team'
 import Row from '../components/Row'
-import { getPlayers } from '../redux/modules/game'
+import { getGameInfo } from '../redux/modules/game'
 import { toggleSelect } from '../redux/modules/player'
 
 const GameContainer = ({
-  initPlayers,
+  gameInfo,
   gameId,
   teams,
   selectedPlayers,
   togglePlayerSelect,
 }) => {
   useEffect(() => {
-    initPlayers()
-  }, [initPlayers])
+    gameInfo()
+  }, [gameInfo])
   return (
     <Row>
       { teams.map((team, i) =>
@@ -38,7 +38,7 @@ const stateToProps = ({ game, player }) => ({
 })
 
 const dispatchToProps = {
-  initPlayers: getPlayers,
+  gameInfo: getGameInfo,
   togglePlayerSelect: toggleSelect,
 }
 
