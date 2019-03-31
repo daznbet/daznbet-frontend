@@ -11,8 +11,8 @@ import Container from './components/Container'
 import Logo from './components/Logo'
 
 import UserContainer from './containers/UserContainer'
-import PlayersContainer from './containers/PlayersContainer'
 import VideoContainer from './containers/VideoContainer'
+import GameContainer from './containers/GameContainer'
 
 const App = ({ user }) => {
   const shouldShowUserContainer = !user || !user.id
@@ -31,7 +31,7 @@ const App = ({ user }) => {
             height={videoHeight}
           />
           {shouldShowUserContainer && <UserContainer />}
-          {shouldShowPlayersContainer && <PlayersContainer />}
+          {shouldShowPlayersContainer && <GameContainer />}
         </Container>
       </>
     </ThemeProvider>

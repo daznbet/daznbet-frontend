@@ -6,7 +6,7 @@ import Title from './Title'
 const Player = ({ side, player, selected }) => (
   <div style={{cursor: 'pointer'}}>
   <Card side={side} inverse={selected}>
-    <Title styled={false} size="sm">{player.name}</Title>
+    <Title styled={false} size="sm">{player.playerName}</Title>
   </Card>
   </div>
 )
